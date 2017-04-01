@@ -1,0 +1,22 @@
+#SSH整合应用
+Data Access Object
+数据访问层/持久层
+
+持久性：数据持久性靠写文件或写入db
+JDBC、MyBatis、Hibernate都是解决写入db,
+对db操作的方案。
+##将User对象持久化
+-使用JDBC--》获取连接/写insert/设置参数/执行
+-使用Mybatis--》搭建环境/写insert/指定参数
+-使用Hibernate--》搭建环境/写映射/指定参数
+
+
+
+
+
+
+
+
+
+
+

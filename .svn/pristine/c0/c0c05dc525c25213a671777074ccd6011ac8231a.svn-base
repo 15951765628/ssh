@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax版本的列表显示</title>
+<script type="text/javascript"src="js/jquery.min.js"></script>
+<script type="text/javascript"src="js/basepath.js"></script>
+<script type="text/javascript">
+//页面加载完毕,发送Ajax加载笔记列表
+	function bt1(){
+	var username=$("input").eq(0).val();
+	var password=$("input").eq(1).val();
+	var flag=false;
+	$.ajax({
+		url:path+"user/login",
+		type:"post",
+		dataType:"json",
+		data:{"username":username,"password":password},
+		success:function(data){
+			if(data.status==0){
+				console.log("开始执行查表工作");
+				
+			}
+			if(data.status==1)	alert("登录失败");
+			
+		},
+		error:function(){
+			alert("访问失败");
+		}
+	});
+	}
+	
+	function bt2(){
+		$.ajax({
+			url:path+"family/searchFamily",
+			type:"post",
+			dataType:"json",
+			data:JSON.stringify({"familyId":1}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.Msg);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt3(){
+		$.ajax({
+			url:path+"plan/loadPlan",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"planId":1}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt4(){
+		$.ajax({
+			url:path+"account/loadAccount",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"accountId":7}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt5(){
+		$.ajax({
+			url:path+"product/loadProducts",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"userId":1}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt6(){
+		$.ajax({
+			url:path+"bill/loadMoney",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"bookId":"6","dayStart":"2017-03-14T15:06:22.051Z","weekStart":"2017-03-12T16:00:00.000Z","monthStart":"2017-03-01T16:00:00.000Z","yearStart":"2017-01-01T16:00:00.000Z"}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt7(){
+		$.ajax({
+			url:path+"account/loadTotalMoney",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"userId":4}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	function bt8(){
+		$.ajax({
+			url:path+"account/loadAccountMoney",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"accountId":12}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt10(){
+		$.ajax({
+			url:path+"family/createApply",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"userId":12,"familyId":123,"fcreaterId":1}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	
+	function bt11(){
+		$.ajax({
+			url:path+"user/loadUsersTotalByFamily",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"familyId": 20, "startDate": "2017-03-01T16:00:00.000Z", "endDate": "2017-03-31T16:00:00.000Z"}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+	function bt12(){
+		$.ajax({
+			url:path+"family/loadApply",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"userId":1}),
+			success:function(data){
+				if(data.Status==0){
+					console.log(data.data);
+				}
+				if(data.Status==1){
+					console.log(data.Msg);
+				}
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
+</script>
+</head>
+<body>
+	<form>
+	</form>
+	账号：<input type="text" ><br/>
+	密码：<input type="password"><br/>
+	<input type="button" value="确定" onclick="bt1()"/>
+	<input type="button" value="search家庭=1" onclick="bt2()"/>
+	<input type="button" value="加载计划" onclick="bt3()"/>
+	<input type="button" value="加载账户（account=7）" onclick="bt4()"/>
+	<input type="button" value="加载理财产品（userId=1）" onclick="bt5()"/>
+	<input type="button" value="加载loadmOney（bookId=6）" onclick="bt6()"/>
+	<input type="button" value="加载用户总资产(userId=4)" onclick="bt7()"/>
+	<input type="button" value="加载账户总资产(accountId=12)" onclick="bt8()"/>
+	<input type="button" value="成员总资产(userId=12)" onclick="bt9()"/>
+	
+	<hr/>
+	<input type="button" value="加载家庭总资产(familyId=20)" onclick="bt11()"/>
+	<input type="button" value="创建APPLY" onclick="bt10()"/>
+	<input type="button" value="loadAPPLY(userId=123)" onclick="bt12()"/>
+
+
+	<table>
+		<thead>
+			<tr>
+				<td>id</td><td>name</td><td>password</td>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+		
+		</tbody>
+	</table>
+</body>
+
+<!-- <script type="text/javascript">
+$.ajax({
+	url:path+"user/list",
+	type:"post",
+	dataType:"json",
+	success:function(data){
+		//data就是服务器返回的笔记集合
+		//循环生成tr元素
+		for(var i=0;i<data.data.length;i++){
+			var userId = data.data[i].userId;
+			var username = data.data[i].username;
+			var password = data.data[i].password;
+			//拼一个tr
+			var str = "";
+			str+='<tr>';
+			str+='	<td>'+userId+'</td>';
+			str+='	<td>'+username+'</td>';
+			str+='	<td>'+password+'</td>';
+			str+='</tr>';
+		
+			//添加到table中
+			console.log("添加节点");
+			$("#tbody").append(str);
+		}
+	},
+	error:function(){
+		alert("加载用户");
+	}
+});
+
+
+</script> -->
+</html>

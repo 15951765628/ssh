@@ -1,0 +1,24 @@
+package com.tedu.service;
+
+import java.util.List;
+
+import com.tedu.entity.Family;
+import com.tedu.entity.Result;
+import com.tedu.entity.U_family;
+
+public interface FamilyService {
+
+	Result<List<Family>> checkFamily(int userId);
+
+	Result<List<Family>> createFamily(int userId, String name, String declaration, String address);
+
+	public void addFamilyId(int userId,int familyId);
+
+	void createApply(int userId, String username, int familyId,String familyname, int fcreaterId);
+
+	Result<List<U_family>> loadApply(int userId);
+
+	Result<List<U_family>> updateApply(int u_familyId, int userId, int familyId, int fcreaterId, int isRefuse);
+
+	Result<List<Family>> searchFamily(int familyId);
+}

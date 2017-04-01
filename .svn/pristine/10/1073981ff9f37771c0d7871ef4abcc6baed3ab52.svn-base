@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- json-default包在struts2-json-plugin.jar中 -->
+	<package name="user" namespace="/user" 	extends="json-default">
+	    
+		<!-- 验证用户登陆 -->
+		<action name="login" class="userAction" method="userLogin"> 
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<action name="register" class="userAction" method="userRegister">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		
+		<action name="loadUser" class="userAction" method="loadUser">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<action name="loadUserTotal" class="userAction" method="loadUserTotal">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<action name="loadUsersTotalByFamily" class="userAction" method="loadUsersTotalByFamily">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<action name="updateUser" class="userAction" method="updateUser">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		        
+		<!-- 查询所有用户 -->
+		<action name="list" class="userAction" method="checkFamily">
+		    
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+
+	</package>
+	
+	
+	<!-- 家庭的访问 -->
+	<package name="family" namespace="/family" extends="json-default">
+		<!-- 检查用户是否有家庭 -->
+		
+		<action name="checkFamily" class="familyAction" method="checkFamily">
+		     <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<!-- 查找家庭 -->
+		<action name="searchFamily" class="familyAction" method="searchFamily">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u</param>
+		    </result>
+		</action>
+		
+		
+		<!-- 创建家庭 -->
+		<action name="createFamily" class="familyAction" method="createFamily">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u</param>
+		    </result>
+		</action>
+		
+		
+		<!-- 创建申请 -->
+		<action name="createApply" class="familyAction" method="createApply">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u</param>
+		    </result>
+		</action>
+		
+		<!-- 查询申请-->
+		<action name="loadApply" class="familyAction" method="loadApply">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u2</param>
+		    </result>
+		</action>
+		
+		<!-- 查询申请-->
+		<action name="updateApply" class="familyAction" method="updateApply">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u2</param>
+		    </result>
+		</action>
+		
+		
+	</package>
+	
+	<!-- 账本Book -->
+	<package name="book" namespace="/book" extends="json-default">
+	    
+	    <!-- 创建账本 -->
+	    <action name="createBook" class="bookAction" method="createBook">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询账本 -->
+	    <action name="loadBook" class="bookAction" method="loadBook">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除账本 -->
+	    <action name="deleteBook" class="bookAction" method="deleteBook">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改账本 -->
+	    <action name="updateBook" class="bookAction" method="updateBook">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	
+	
+	<!-- 账单Bill -->
+	<package name="bill" namespace="/bill" extends="json-default">
+	    
+	    <!-- 创建账单 -->
+	    <action name="createBill" class="billAction" method="createBill">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询账单 -->
+	    <action name="loadBill" class="billAction" method="loadBill">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    
+	    <!-- 查询账单 -->
+	    <action name="loadMoney" class="billAction" method="loadMoney">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u2</param>
+	  		</result>
+	    </action>
+	    
+	     <!-- 查询账单s -->
+	    <action name="loadBills" class="billAction" method="loadBills">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    
+	     <!-- 查询账单s根据时间段-->
+	    <action name="loadBillsByTime" class="billAction" method="loadBillByTime">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除账单 -->
+	    <action name="deleteBill" class="billAction" method="deleteBill">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除多个账单 -->
+	    <action name="deleteBills" class="billAction" method="deleteBills">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改账单 -->
+	    <action name="updateBill" class="billAction" method="updateBill">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 按照时间段查询账单账单 -->
+	    <action name="loadBillByTime" class="billAction" method="loadBillByTime">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	
+	<!-- 账户Account -->
+	<package name="account" namespace="/account" extends="json-default">
+	    
+	    <!-- 创建账户 -->
+	    <action name="createAccount" class="accountAction" method="createAccount">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询账户 -->
+	    <action name="loadAccount" class="accountAction" method="loadAccount">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	     <!-- 查询所有账户 总额-->
+	    <action name="loadTotalMoney" class="accountAction" method="loadTotalMoney">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	     <!-- 查询所有账户 总额-->
+	    <action name="loadAccountMoney" class="accountAction" method="loadAccountMoney">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    
+	     <!-- 查询账户s -->
+	    <action name="loadAccounts" class="accountAction" method="loadAccounts">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除账户 -->
+	    <action name="deleteAccount" class="accountAction" method="deleteAccount">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除多个账户 -->
+	    <action name="deleteAccounts" class="accountAction" method="deleteAccounts">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改账户 -->
+	    <action name="updateAccount" class="accountAction" method="updateAccount">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	<!-- 账户note -->
+	<package name="note" namespace="/note" extends="json-default">
+	    
+	    <!-- 创建note -->
+	    <action name="createNote" class="noteAction" method="createNote">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询notes -->
+	    <action name="loadNotes" class="noteAction" method="loadNotes">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	     <!-- 查询note -->
+	    <action name="loadNote" class="noteAction" method="loadNote">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除note -->
+	    <action name="deleteNote" class="noteAction" method="deleteNote">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改note -->
+	    <action name="updateNote" class="noteAction" method="updateNote">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	
+	
+	<!-- 账户Plan -->
+	<package name="plan" namespace="/plan" extends="json-default">
+	    
+	    <!-- 创建note -->
+	    <action name="createPlan" class="planAction" method="createPlan">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询plans -->
+	    <action name="loadPlans" class="planAction" method="loadPlans">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	     <!-- 查询plan -->
+	    <action name="loadPlan" class="planAction" method="loadPlan">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除plan -->
+	    <action name="deletePlan" class="planAction" method="deletePlan">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改plan -->
+	    <action name="updatePlan" class="planAction" method="updatePlan">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	
+	<!-- 账户product -->
+	<package name="product" namespace="/product" extends="json-default">
+	    
+	    <!-- 创建note -->
+	    <action name="createProduct" class="productAction" method="createProduct">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 查询products -->
+	    <action name="loadProducts" class="productAction" method="loadProducts">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	     <!-- 查询product -->
+	    <action name="loadProduct" class="productAction" method="loadProduct">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除product -->
+	    <action name="deleteProduct" class="productAction" method="deleteProduct">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改product -->
+	    <action name="updateProduct" class="productAction" method="updateProduct">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
+	
+</struts>
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.Family"	table="family" dynamic-insert="true" dynamic-update="true">
+		<id name="familyId" type="int" column="familyId">
+		    <generator class="identity"/>
+		</id>
+		<property name="name" type="string"	column="name" >	</property>
+		<property name="icon" type="string"	column="icon">	</property>
+		<property name="declaration" type="string"	column="declaration">	</property>
+		<property name="address" type="string"	column="address">	</property>
+		<property name="createdate" type="date"	column="createdate">	</property>
+		<property name="createrId" type="int"	column="createrId">	</property>
+		
+		<!-- 配置services属性，采用一对多的关系 -->
+        <set name="users">
+            <!-- 用于指定关联条件，写关联条件的外键字段 -->
+            <key column="familyId"/>
+            <!-- 用于指定采用哪种关系，加载哪方数据 -->
+            <one-to-many class="com.tedu.entity.User"/>
+        </set>
+	</class>
+	
+
+</hibernate-mapping>

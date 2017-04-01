@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.U_family"	table="u_family" dynamic-insert="true" dynamic-update="true">
+		<id name="u_familyId" type="int" column="u_familyId">
+		    <generator class="identity"/>
+		</id>
+		<property name="userId" type="int"	column="userId">	</property>
+		<property name="familyId" type="int"	column="familyId">	</property>
+		<property name="fcreaterId" type="int"	column="fcreaterId">	</property>
+		<property name="isRead" type="int"	column="isRead">	</property>
+		<property name="isRefuse" type="int"	column="isRefuse">	</property>
+		<property name="username" type="string"	column="username">	</property>
+		<property name="familyname" type="string"	column="familyname">	</property>
+		
+	</class>
+	
+
+</hibernate-mapping>

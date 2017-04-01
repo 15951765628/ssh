@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.Plan"	table="plan" dynamic-insert="true" dynamic-update="true">
+		<id name="planId" type="int" column="planId">
+		    <generator class="identity"/>
+		</id>
+		<property name="money" type="int"	column="money" >	</property>
+		<property name="totalmoney" type="int"	column="totalmoney">	</property>
+		<property name="name" type="string"	column="name">	</property>
+		<property name="note" type="string"	column="note">	</property>
+		<property name="userId" type="int"	column="userId">	</property>
+		<property name="startdate" type="date"	column="startdate">	</property>
+		<property name="createdate" type="date"	column="createdate">	</property>
+		<property name="enddate" type="date"	column="enddate">	</property>
+			
+	</class>
+	
+	
+
+</hibernate-mapping>

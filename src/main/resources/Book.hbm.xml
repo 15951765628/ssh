@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.Book"	table="book" dynamic-insert="true" dynamic-update="true">
+		<id name="bookId" type="int" column="bookId">
+		    <generator class="identity"/>
+		</id>
+		<property name="imagepath" type="string"	column="imagepath" >	</property>
+		<property name="bookname" type="string"	column="bookname">	</property>
+		<property name="note" type="string"	column="note">	</property>
+		<property name="userId" type="int"	column="userId">	</property>
+		
+		
+		<!-- 配置services属性，采用一对多的关系 -->
+        <set name="bills">
+            <!-- 用于指定关联条件，写关联条件的外键字段 -->
+            <key column="bookId"/>
+            <!-- 用于指定采用哪种关系，加载哪方数据 -->
+            <one-to-many class="com.tedu.entity.Bill"/>
+        </set>
+	</class>
+	
+</hibernate-mapping>

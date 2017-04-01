@@ -1,0 +1,53 @@
+package com.tedu.service;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.tedu.dao.ProductDao;
+import com.tedu.entity.Note;
+import com.tedu.entity.Product;
+import com.tedu.entity.Result;
+
+@Service("productService")
+@Transactional
+public class ProductServiceImpl implements ProductService{
+
+	
+	@Resource
+	private ProductDao productDao;
+
+	public Result<List<Product>> loadProduct(int productId) {
+		// TODO Auto-generated method stub
+		return productDao.loadProduct(productId);
+	}
+
+	public Result<List<Product>> loadProducts(int userId) {
+		// TODO Auto-generated method stub
+		return productDao.loadProducts(userId);
+	}
+
+	public Result<List<Product>> updateProduct(int productId, String name, int price, int totalMoney, String note,
+			float rate, Date startdate, Date enddate, int payaccountId,int num) {
+		// TODO Auto-generated method stub
+		return productDao.updateProduct(productId,name,price,totalMoney,note,rate,startdate,enddate,payaccountId,num);
+	}
+
+	public Result<List<Product>> createProduct(String name, int price, int totalMoney, String note, float rate,
+			Date startdate, Date enddate, int userId, int payaccountId,int type,int num) {
+		// TODO Auto-generated method stub
+		return productDao.createProduct(name,price,totalMoney,note,rate,startdate,enddate,userId,payaccountId,type,num);
+	}
+
+	public Result<List<Product>> deleteProduct(int productId) {
+		// TODO Auto-generated method stub
+		return productDao.deleteProduct(productId);
+	}
+	
+
+
+}
