@@ -547,7 +547,18 @@
   
 	</package>
 	
-	
+	<!-- 设置上传文件最大值 -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+    <constant name="struts.multipart.maxSize" value="5000000"/>
+    
+    <!-- 文件上传示例 -->
+    <package name="file" namespace="/file" extends="json-default">
+        <!-- 上传文件 -->
+        <action name="upload" class="uploadAction" method="upload">
+            <result name="success"></result>
+        </action>
+    </package>    
+
 </struts>
 
 

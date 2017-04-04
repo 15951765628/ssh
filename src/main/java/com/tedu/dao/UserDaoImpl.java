@@ -183,13 +183,13 @@ public class UserDaoImpl implements UserDao{
 			if(password!=null){
 				user.setPassword(password);
 			}
-			user.setNickname(nickname);
-			user.setUsericon(usericon);
-			user.setBirthday(birthday);
-			user.setMobilephone(mobilephone);
-			user.setEmail(email);
-			user.setTruename(truename);
-			user.setSex(sex);
+			if(nickname!=null)user.setNickname(nickname);
+			if(usericon!=null)user.setUsericon(usericon);
+			if(birthday!=null)user.setBirthday(birthday);
+			if(mobilephone!=null)user.setMobilephone(mobilephone);
+			if(email!=null)user.setEmail(email);
+			if(truename!=null)user.setTruename(truename);
+			if(sex!=null)user.setSex(sex);
 			update(user);
 			
 			
