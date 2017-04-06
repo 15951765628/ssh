@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UploadFiles</title>
+    <script src="jquery-1.8.2.js"></script>
+    <script src="jquery.form.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnsubmit").click(function () {
+                $("#form1").ajaxSubmit({
+                    success: function (data) {
+                        alert(data.url);
+                    },
+                    error: function (error) { alert(error); },
+                    url: '/123/222', /*设置post提交到的页面*/
+                    type: "post", /*设置表单以post方法提交*/
+                    dataType: "json" /*设置返回值类型为文本*/
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data" id="form1">
+        <input type="file" name="imgfile" />
+        <input type="button" id="btnsubmit" value=" 上 传 " />
+    </form>
+</body>
+</html>

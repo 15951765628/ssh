@@ -557,6 +557,13 @@
         <action name="upload" class="uploadAction" method="upload">
             <result name="success"></result>
         </action>
+        
+        <!-- 上传文件 -->
+        <action name="*.png" class="uploadAction" method="showImg">
+            <result name="success">
+                
+            </result>
+        </action>
     </package>    
 
 </struts>

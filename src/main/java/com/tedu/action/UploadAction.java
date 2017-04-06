@@ -47,6 +47,10 @@ public class UploadAction {
         userService.updateUser(userId, null, null, null, null, null, null, null, someFileName);
         return "success";
     }
+    
+    
+    
+    
     public File getSome() {
         return some;
     }
