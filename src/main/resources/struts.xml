@@ -18,7 +18,7 @@
 		
 		<action name="register" class="userAction" method="userRegister">
 		    <interceptor-ref name="json">  
-                <param name="contentType">application/json</param>  
+                <param name="contentType">application/json</param>
             </interceptor-ref>
 			<result name="success" type="json">
 				<param name="root">u</param>
