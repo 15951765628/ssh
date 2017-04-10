@@ -24,4 +24,6 @@ public interface FamilyDao {
 
 	Result<List<Family>> searchFamily(int familyId);
 
+	Result<List<Family>> loadFamilys();
+
 }

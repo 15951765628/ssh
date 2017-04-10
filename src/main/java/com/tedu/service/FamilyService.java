@@ -21,4 +21,6 @@ public interface FamilyService {
 	Result<List<U_family>> updateApply(int u_familyId, int userId, int familyId, int fcreaterId, int isRefuse);
 
 	Result<List<Family>> searchFamily(int familyId);
+
+	Result<List<Family>> loadFamilys();
 }

@@ -220,8 +220,31 @@ public class FamilyDaoImpl implements FamilyDao{
 			result.setStatus(1);
 			
 		}
-		
-		
+		return result;
+	}
+
+	public Result<List<Family>> loadFamilys() {
+		// TODO Auto-generated method stub
+		Result<List<Family>> result =new Result<List<Family>>();
+		List<Family> list=new ArrayList<Family>();
+		try {
+			String sql="from Family where 1 = 1";
+			
+			list=template.find(sql);
+			
+			if(list.size()>0){
+			
+				result.setData(list);
+			}
+			
+			
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			result.setStatus(1);
+			
+		}
 		return result;
 	}
 

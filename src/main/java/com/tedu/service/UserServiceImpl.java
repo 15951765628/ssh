@@ -83,6 +83,11 @@ public class UserServiceImpl implements UserService{
 		return userDao.changePassword(userId,password);
 	}
 
+	public Result<List<User>> loadUsers() {
+		// TODO Auto-generated method stub
+		 return userDao.loadUsers();
+	}
+
 	
 
 

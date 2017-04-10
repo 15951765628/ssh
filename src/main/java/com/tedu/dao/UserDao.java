@@ -28,4 +28,5 @@ public interface UserDao {
 			String sex, String mobilephone, String nickname, String usericon);
 	public Result<List<User>> loadUserTotal(int userId,Date startdate,Date endDate );
 	public Result<List<User>> changePassword(int userId, String password);
+	public Result<List<User>> loadUsers();
 }

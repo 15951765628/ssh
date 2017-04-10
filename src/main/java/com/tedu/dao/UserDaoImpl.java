@@ -251,4 +251,23 @@ public class UserDaoImpl implements UserDao{
 		return result;
 	}
 
+	public Result<List<User>> loadUsers() {
+		// TODO Auto-generated method stub
+		Result<List<User>> result=new Result<List<User>>();
+		try {
+			String sql="from User where 1=1";
+			List<User> list=template.find(sql);
+			if(list.size()>0){
+				result.setData(list);
+			}
+			
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setStatus(1);
+		}
+		
+		return result;
+	}
+
 }

@@ -43,6 +43,13 @@ public class FamilyAction {
 	}
 	
 	
+	public String loadFamilys(){
+		
+		u=familyService.loadFamilys();
+		return "success";
+	}
+	
+	
 	public String createFamily(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session= request.getSession();

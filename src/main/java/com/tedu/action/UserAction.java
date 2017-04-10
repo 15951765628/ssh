@@ -56,6 +56,11 @@ public class UserAction {
 		return "success";
 	}
 	
+	public String loadUsers(){
+		u=userService.loadUsers();
+		return "success";
+	}
+	
 	public String updateUser(){
 		u=userService.updateUser(userId,email,password,truename,birthday,sex,mobilephone,nickname,usericon);
 		return "success";

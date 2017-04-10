@@ -75,6 +75,11 @@ public class FamilyServiceImpl implements FamilyService{
 		// TODO Auto-generated method stub
 		return familyDao.searchFamily(familyId);
 	}
+
+	public Result<List<Family>> loadFamilys() {
+		// TODO Auto-generated method stub
+		return familyDao.loadFamilys();
+	}
 	
 	
 }

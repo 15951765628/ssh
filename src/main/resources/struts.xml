@@ -63,6 +63,15 @@
 			</result>
 		</action>
 		
+		<action name="loadUsers" class="userAction" method="loadUsers">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
 		<action name="updateUser" class="userAction" method="updateUser">
 		    <interceptor-ref name="json">  
                 <param name="contentType">application/json</param>  
@@ -74,7 +83,6 @@
 		        
 		<!-- 查询所有用户 -->
 		<action name="list" class="userAction" method="checkFamily">
-		    
 			<result name="success" type="json">
 				<param name="root">u</param>
 			</result>
@@ -88,6 +96,15 @@
 		<!-- 检查用户是否有家庭 -->
 		
 		<action name="checkFamily" class="familyAction" method="checkFamily">
+		     <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<action name="loadFamilys" class="familyAction" method="loadFamilys">
 		     <interceptor-ref name="json">  
                 <param name="contentType">application/json</param>
             </interceptor-ref>

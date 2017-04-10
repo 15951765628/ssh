@@ -16,5 +16,6 @@ public interface UserService {
 	public Result<List<User>> loadUserTotal(int userId,Date startdate,Date endDate);
 	public Result<List<User>> loadUsersTotalByFamily(int familyId, Date startDate, Date endDate);
 	public Result<List<User>> changePassword(int userId, String password);
+	public Result<List<User>> loadUsers();
 	
 }
