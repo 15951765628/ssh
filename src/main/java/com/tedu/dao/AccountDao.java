@@ -25,4 +25,6 @@ public interface AccountDao {
 
 	Result<List<Account>> loadAccountMoney(int accountId);
 
+	Result<List<Account>> deleteAccount1(int accountId);
+
 }

@@ -54,6 +54,13 @@ public class AccountServiceImpl implements AccountService{
 		billDao.createBill(0,"转账",re.getData().get(0).getMoney(),"",re.getData().get(0).getAccountId(),receiveAccount);
 		return accountDao.deleteAccount(accountId);
 	}
+	
+
+	public Result<List<Account>> deleteAccount1(int accountId) {
+		// TODO Auto-generated method stub
+		
+		return accountDao.deleteAccount1(accountId);
+	}
 
 	public Result<List<Account>> loadTotalMoney(int userId) {
 		// TODO Auto-generated method stub

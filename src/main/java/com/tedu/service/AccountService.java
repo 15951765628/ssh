@@ -21,5 +21,7 @@ public interface AccountService {
 	Result<List<Account>> loadTotalMoney(int userId);
 
 	Result<List<Account>> loadAccountMoney(int accountId);
+
+	Result<List<Account>> deleteAccount1(int accountId);
 	
 }

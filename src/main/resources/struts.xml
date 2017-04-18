@@ -377,6 +377,16 @@
 	  		</result>
 	    </action>
 	    
+	    <!-- 删除账户 -->
+	    <action name="deleteAccount1" class="accountAction" method="deleteAccount1">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
 	    <!-- 删除多个账户 -->
 	    <action name="deleteAccounts" class="accountAction" method="deleteAccounts">
 	        <interceptor-ref name="json">

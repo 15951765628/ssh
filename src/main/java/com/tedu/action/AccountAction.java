@@ -50,7 +50,13 @@ public class AccountAction {
 			u=accountService.deleteAccount(accountId,receiveAccount);
 			return "success";
 		}
-	
+		
+		//删除账单
+		public String deleteAccount1(){
+			u=accountService.deleteAccount1(accountId);
+			return "success";
+		}
+
 	//查询账户总额和账户净收入，净支出
 	public String loadTotalMoney(){
 		u=accountService.loadTotalMoney(userId);

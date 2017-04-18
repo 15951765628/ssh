@@ -191,7 +191,7 @@ public class BillDaoImpl implements BillDao{
 				String sql="delete from bill where bookId = ?";
 				
 				try {
-					int  row=template.getSessionFactory().getCurrentSession().createSQLQuery(sql).setInteger(1, bookId).executeUpdate();
+					//int  row=template.getSessionFactory().getCurrentSession().createSQLQuery(sql).setInteger(0, bookId).executeUpdate();
 					
 				} catch (Exception e) {
 					// TODO: handle exception

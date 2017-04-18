@@ -169,6 +169,24 @@ public class AccountDaoImpl implements AccountDao{
 				Result<List<Account>> result=new Result<List<Account>>();
 				List<Account> list=new ArrayList<Account>();
 				try {
+					//template.getSessionFactory().getCurrentSession().createQuery("delete from account where accountId = "+accountId).executeUpdate();
+					//int  row=template.getSessionFactory().getCurrentSession().createSQLQuery("delete from account where accountId = ?").setInteger(0, accountId).executeUpdate();
+					//delete(accountId);
+					
+					result.setStatus(0);
+				} catch (Exception e) {
+					e.printStackTrace();
+					// TODO: handle exception
+					result.setStatus(1);
+				}
+				return result;
+	}
+	
+	public Result<List<Account>> deleteAccount1(int accountId) {
+		// TODO Auto-generated method stub
+				Result<List<Account>> result=new Result<List<Account>>();
+				List<Account> list=new ArrayList<Account>();
+				try {
 					delete(accountId);
 					
 					result.setStatus(0);
