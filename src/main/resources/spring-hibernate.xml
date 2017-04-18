@@ -29,7 +29,6 @@
 			value="com.mysql.jdbc.Driver">   
 		</property>
 		<!--property name="url" value="jdbc:mysql://zhaoyangaa2.iok.la:22232/fmanagement?useUnicode=true&amp;characterEncoding=utf8"/-->
-		<!--property name="url" value="jdbc:mysql://42.159.243.184:3306/fmanagement?useUnicode=true&amp;characterEncoding=utf8"/-->
 		<property name="url" value="jdbc:mysql://localhost:3306/fmanagement?useUnicode=true&amp;characterEncoding=utf8"/>
 	
 	</bean>

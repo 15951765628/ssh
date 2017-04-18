@@ -1,74 +1,70 @@
 package com.tedu.action;
 
 
-import javax.annotation.Resource;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import com.tedu.service.AccountService;
-import com.tedu.service.UserService;
+import com.opensymphony.xwork2.ActionSupport;
+import com.tedu.tools.FileUtil;
 
 import java.io.File;
-import org.apache.struts2.ServletActionContext;
-import com.tedu.tools.FileUtil;
 
 @Controller
 @Scope("prototype")
-public class UploadAction {
+public class UploadAction extends ActionSupport { 
 
-	@Resource
-	private AccountService accountService;
-	
-	
-	/**
-     * 接收拦截器传入的临时文件
-     */
-    private File some;
-    
-    @Resource
-	private UserService userService;
-    
-    private int userId;
-    
-    /**
-     * 接收拦截器注入的原始文件名
-     */
-    private String someFileName;
-    
-    public String upload() {
-        if (some == null)
-            return "error";
-        // 将文件放于项目部署路径下的upload文件夹下
-        String path = "WEB-INF/upload/" + someFileName;
+    //如有多个文件上传可以使用数组接收
+    private File file;  
+    private String fileFileName;  
+    private String fileContentType;
+
+    //(要接收的表单参数) .... 
+        private String type;
+
+    public void  upload() {
+        // to do something
+    	 // 将文件放于项目部署路径下的upload文件夹下
+        String path = "img/" + fileFileName;
         // 根据相对部署路径计算完整路径
         path = ServletActionContext.getServletContext().getRealPath(path);
         // 将临时文件复制到上述路径下
-        FileUtil.copy(some, new File(path));
-        
-        userService.updateUser(userId, null, null, null, null, null, null, null, someFileName);
-        return "success";
+        FileUtil.copy(file, new File(path));
     }
-    
-    
-    
-    
-    public File getSome() {
-        return some;
+
+
+    //setter getter
+    public File getFile() {
+        return file;
     }
-    public int getUserId() {
-        return userId;
+
+
+    public String getType() {
+        return type;
     }
-    
-    public void setUserId(int userId) {
-        this.userId = userId;
+
+    public void setType(String type) {
+        this.type = type;
     }
-    
-    public void setSome(File some) {
-        this.some = some;
+
+    public String getFileFileName() {
+        return fileFileName;
     }
-    public String getSomeFileName() {
-        return someFileName;
+
+    public String getFileContentType() {
+        return fileContentType;
     }
-    public void setSomeFileName(String someFileName) {
-        this.someFileName = someFileName;
+
+    public void setFile(File file) {
+        this.file = file;
     }
+
+    public void setFileFileName(String fileFileName) {
+        this.fileFileName = fileFileName;
+    }
+
+    public void setFileContentType(String fileContentType) {
+        this.fileContentType = fileContentType;
+    }
+
+
 }

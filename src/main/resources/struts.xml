@@ -569,17 +569,10 @@
     <constant name="struts.multipart.maxSize" value="5000000"/>
     
     <!-- 文件上传示例 -->
-    <package name="file" namespace="/file" extends="json-default">
+    <package name="file" namespace="/file" extends="struts-default">
         <!-- 上传文件 -->
         <action name="upload" class="uploadAction" method="upload">
-            <result name="success"></result>
-        </action>
-        
-        <!-- 上传文件 -->
-        <action name="*.png" class="uploadAction" method="showImg">
-            <result name="success">
-                
-            </result>
+           
         </action>
     </package>    
 
