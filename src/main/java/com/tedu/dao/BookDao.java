@@ -7,7 +7,7 @@ import com.tedu.entity.Result;
 
 public interface BookDao {
 
-	Result<List<Book>> createBook(int userId, String bookname, String note);
+	Result<List<Book>> createBook(int userId, String bookname, String note, String imagepath);
 
 	Result<List<Book>> loadBook(int userId);
 

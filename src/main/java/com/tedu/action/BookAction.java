@@ -29,7 +29,7 @@ public class BookAction {
 	//创建账本
 	public String createBook(){
 		
-		u=bookService.createBook(userId,bookname,note);
+		u=bookService.createBook(userId,bookname,note,imagepath);
 		
 		return "success";
 	}

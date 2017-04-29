@@ -19,9 +19,9 @@ public class BookServiceImpl implements BookService{
 	@Resource
 	private BookDao bookDao;
 	
-	public Result<List<Book>> createBook(int userId,String bookname,String note) {
+	public Result<List<Book>> createBook(int userId,String bookname,String note,String imagepath) {
 		// TODO Auto-generated method stub
-		return bookDao.createBook(userId,bookname,note);
+		return bookDao.createBook(userId,bookname,note,imagepath);
 	}
 
 	public Result<List<Book>> loadBook(int userId) {

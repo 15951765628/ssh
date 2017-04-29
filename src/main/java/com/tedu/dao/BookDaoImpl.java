@@ -37,7 +37,7 @@ public class BookDaoImpl implements BookDao{
 		return book;
 	}
 
-	public Result<List<Book>> createBook(int userId, String bookname, String note) {
+	public Result<List<Book>> createBook(int userId, String bookname, String note,String imagepath) {
 		// TODO Auto-generated method stub
 		Result<List<Book>> result=new Result<List<Book>>();
 		List<Book> list=new ArrayList<Book>();
@@ -46,6 +46,7 @@ public class BookDaoImpl implements BookDao{
 			book.setBookname(bookname);
 			book.setNote(note);
 			book.setUserId(userId);
+			book.setImagepath(imagepath);
 			save(book);
 			
 			//list.add(book);
