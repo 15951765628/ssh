@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService{
 	public Result<List<User>> userRegister(String username, String password,String email) {
 		// TODO Auto-generated method stub
 		
-		return userDao.userRegister(username,password);
+		return userDao.userRegister(username,password,email);
 	}
 
 	public Result<List<User>> loadUser(int userId) {

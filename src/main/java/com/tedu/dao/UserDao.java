@@ -20,7 +20,7 @@ public interface UserDao {
 	 */
 	public User findByName(String name);
 	public Result<List<User>> userLogin(String username, String password);
-	public Result<List<User>> userRegister(String username, String password);
+	public Result<List<User>> userRegister(String username, String password, String email);
 	public Result<List<Family>> checkFamily(int userId);
 	public Object addFamilyId(int userId, int familyId);
 	public Result<List<User>> loadUser(int userId);

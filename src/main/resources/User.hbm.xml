@@ -13,6 +13,8 @@
 		<property name="sex" 	  type="string"	column="sex" >		</property>
 		<property name="birthday" type="string"	column="birthday">	</property>
 		<property name="usericon" type="string"	column="usericon">	</property>
+		<property name="skin" type="string"	column="skin">	</property>
+		<property name="collection" type="string"	column="collection">	</property>
 		<property name="email" type="string"	column="email">		</property>
 		<property name="mobilephone" type="string"	column="mobilephone" ></property>
 		<property name="familyId" type="int"	column="familyId"> </property>

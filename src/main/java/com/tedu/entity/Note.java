@@ -10,7 +10,7 @@ private  String note;
 private  Date createdate;
 private  Date enddate;
 private  Date startdate;
-private  int enabled;
+private  String username;
 public int getNoteId() {
 	return noteId;
 }
@@ -41,11 +41,11 @@ public Date getStartdate() {
 public void setStartdate(Date startdate) {
 	this.startdate = startdate;
 }
-public int getEnabled() {
-	return enabled;
+public String getUsername() {
+	return username;
 }
-public void setEnabled(int enabled) {
-	this.enabled = enabled;
+public void setUsername(String username) {
+	this.username = username;
 }
 
 }

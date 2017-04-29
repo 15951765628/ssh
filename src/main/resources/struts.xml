@@ -581,8 +581,7 @@
     <!-- 文件上传示例 -->
     <package name="file" namespace="/file" extends="struts-default">
         <!-- 上传文件 -->
-        <action name="upload" class="uploadAction" method="upload">
-           
+        <action name="upload" class="uploadAction" method="upload">   
         </action>
     </package>    
 

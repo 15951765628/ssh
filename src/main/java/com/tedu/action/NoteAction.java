@@ -27,19 +27,19 @@ public class NoteAction {
 	
 	public String loadNotes()
 	{
-		u=noteService.loadNotes();
+		u=noteService.loadNotes(type);
 		return "success";
 	}
 	
 	public String updateNote()
 	{
-		u=noteService.updateNote(noteId,note,startdate,enddate,enabled);
+		u=noteService.updateNote(noteId,note,startdate,enddate);
 		return "success";
 	}
 	
 	public String createNote()
 	{
-		u=noteService.createNote(note,startdate,enddate,enabled);
+		u=noteService.createNote(note,startdate,enddate,username);
 		return "success";
 	}
 	
@@ -55,10 +55,11 @@ public class NoteAction {
 	
 	private  int noteId;
 	private  String note;
+	private  String username;
 	private  Date createdate;
 	private  Date enddate;
 	private  Date startdate;
-	private  int enabled;
+	private  int type;
 	private Result<List<Note>> u;
 
 	public int getNoteId() {
@@ -91,11 +92,11 @@ public class NoteAction {
 	public void setStartdate(Date startdate) {
 		this.startdate = startdate;
 	}
-	public int getEnabled() {
-		return enabled;
+	public int getType() {
+		return type;
 	}
-	public void setEnabled(int enabled) {
-		this.enabled = enabled;
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public Result<List<Note>> getU() {
@@ -104,6 +105,14 @@ public class NoteAction {
 
 	public void setU(Result<List<Note>> u) {
 		this.u = u;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 }

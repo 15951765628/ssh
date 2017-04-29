@@ -26,19 +26,19 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.loadNote(noteId);
 	}
 
-	public Result<List<Note>> loadNotes() {
+	public Result<List<Note>> loadNotes(int type) {
 		// TODO Auto-generated method stub
-		return noteDao.loadNotes();
+		return noteDao.loadNotes(type);
 	}
 
-	public Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate, int enabled) {
+	public Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate) {
 		// TODO Auto-generated method stub
-		return noteDao.updateNote(noteId,note,startdate,enddate,enabled);
+		return noteDao.updateNote(noteId,note,startdate,enddate);
 	}
 
-	public Result<List<Note>> createNote(String note, Date startdate, Date enddate, int enabled) {
+	public Result<List<Note>> createNote(String note, Date startdate, Date enddate, String username) {
 		// TODO Auto-generated method stub
-		return noteDao.createNote(note,startdate,enddate,enabled);
+		return noteDao.createNote(note,startdate,enddate,username);
 	}
 
 	public Result<List<Note>> deleteNote(int noteId) {

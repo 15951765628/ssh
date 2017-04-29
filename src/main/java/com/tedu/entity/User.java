@@ -14,6 +14,8 @@ public class User implements Serializable{
 	private String birthday;
 	private String email;
 	private String mobilephone;
+	private String skin;
+	private String collection;
 	private String usericon;
 	private int familyId;
 	
@@ -119,6 +121,18 @@ public class User implements Serializable{
 	}
 	public void setTotalLeft(int totalLeft) {
 		this.totalLeft = totalLeft;
+	}
+	public String getSkin() {
+		return skin;
+	}
+	public void setSkin(String skin) {
+		this.skin = skin;
+	}
+	public String getCollection() {
+		return collection;
+	}
+	public void setCollection(String collection) {
+		this.collection = collection;
 	}
 
 	

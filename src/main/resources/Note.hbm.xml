@@ -10,7 +10,7 @@
 		<property name="createdate" type="date"	column="createdate">	</property>
 		<property name="enddate" type="date"	column="enddate">	</property>
 		<property name="startdate" type="date"	column="startdate">	</property>		
-		<property name="enabled" type="int"	column="enabled">	</property>		
+		<property name="username" type="string"	column="username">	</property>		
 		
 	</class>
 </hibernate-mapping>

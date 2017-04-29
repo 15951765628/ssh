@@ -78,7 +78,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	//用户注册
-	public Result<List<User>> userRegister(String username, String password) {
+	public Result<List<User>> userRegister(String username, String password,String email) {
 		// TODO Auto-generated method stub
 		Result<List<User>> u=new Result<List<User>>();
 		
@@ -92,6 +92,8 @@ public class UserDaoImpl implements UserDao{
 			User user=new User();
 			user.setUsername(username);
 			user.setPassword(password);
+			user.setEmail(email);
+			
 			int row=0;
 			try {
 				row=(Integer) template.save(user);

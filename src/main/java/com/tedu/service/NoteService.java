@@ -10,11 +10,11 @@ public interface NoteService {
 
 	Result<List<Note>> loadNote(int noteId);
 
-	Result<List<Note>> loadNotes();
+	Result<List<Note>> loadNotes(int type);
 
-	Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate, int enabled);
+	Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate);
 
-	Result<List<Note>> createNote(String note, Date startdate, Date enddate, int enabled);
+	Result<List<Note>> createNote(String note, Date startdate, Date enddate, String username);
 
 	Result<List<Note>> deleteNote(int noteId);
 

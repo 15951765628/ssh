@@ -58,25 +58,28 @@ public class NoteDaoImpl implements NoteDao{
 		return result;
 	}
 
-	public Result<List<Note>> loadNotes() {
+	public Result<List<Note>> loadNotes(int type) {
 		// TODO Auto-generated method stub
 		Result<List<Note>> result =new Result<List<Note>>();
 		List<Note> list=new ArrayList<Note>();
 		
 		try {
-			String sql="from Note where 1=1";
+			String sql="from Note where ";
+			
+			sql+=type==1?"username is null ":"username is not null ";
 			list=template.find(sql);
 			result.setData(list);
 			result.setStatus(0);
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 			result.setStatus(1);
 		}
 		
 		return result;
 	}
 
-	public Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate, int enabled) {
+	public Result<List<Note>> updateNote(int noteId, String note, Date startdate, Date enddate) {
 		// TODO Auto-generated method stub
 		Result<List<Note>> result =new Result<List<Note>>();
 		List<Note> list=new ArrayList<Note>();
@@ -86,7 +89,7 @@ public class NoteDaoImpl implements NoteDao{
 			Note.setStartdate(startdate);
 			Note.setCreatedate(com.tedu.tools.time.getDate());
 			Note.setEnddate(enddate);
-			Note.setEnabled(enabled);
+			
 			Note.setNote(note);
 			
 			update(Note);
@@ -100,7 +103,7 @@ public class NoteDaoImpl implements NoteDao{
 		return result;
 	}
 
-	public Result<List<Note>> createNote(String note, Date startdate, Date enddate, int enabled) {
+	public Result<List<Note>> createNote(String note, Date startdate, Date enddate, String username) {
 		// TODO Auto-generated method stub
 		Result<List<Note>> result =new Result<List<Note>>();
 		List<Note> list=new ArrayList<Note>();
@@ -110,7 +113,10 @@ public class NoteDaoImpl implements NoteDao{
 			Note.setStartdate(startdate);
 			Note.setCreatedate(com.tedu.tools.time.getDate());
 			Note.setEnddate(enddate);
-			Note.setEnabled(enabled);
+			if(username!=null){
+				Note.setUsername(username);
+			}
+			
 			Note.setNote(note);
 			
 			save(Note);
