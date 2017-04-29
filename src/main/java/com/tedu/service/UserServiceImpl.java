@@ -54,9 +54,9 @@ public class UserServiceImpl implements UserService{
 
 
 	public Result<List<User>> updateUser(int userId, String email, String password, String truename, String birthday,
-			String sex, String mobilephone, String nickname,String usericon) {
+			String sex, String mobilephone, String nickname,String usericon,String skin) {
 		// TODO Auto-generated method stub
-		return userDao.updateUser(userId,email,password,truename,birthday,sex,mobilephone,nickname,usericon);
+		return userDao.updateUser(userId,email,password,truename,birthday,sex,mobilephone,nickname,usericon,skin);
 	}
 
 	public Result<List<User>> loadUserTotal(int userId,Date startdate ,Date enddate) {
@@ -86,6 +86,16 @@ public class UserServiceImpl implements UserService{
 	public Result<List<User>> loadUsers() {
 		// TODO Auto-generated method stub
 		 return userDao.loadUsers();
+	}
+
+	public Result<List<User>> addCollection(int userId, int dataId) {
+		// TODO Auto-generated method stub
+		return userDao.addCollection(userId,dataId);
+	}
+
+	public Result<List<User>> delCollection(int userId, int dataId) {
+		// TODO Auto-generated method stub
+		return userDao.delCollection(userId,dataId);
 	}
 
 	

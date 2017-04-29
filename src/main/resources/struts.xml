@@ -87,6 +87,20 @@
 				<param name="root">u</param>
 			</result>
 		</action>
+		
+		<!-- 添加收藏 -->
+		<action name="addCollection" class="userAction" method="addCollection">
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
+		<!-- 衣橱收藏 -->
+		<action name="delCollection" class="userAction" method="delCollection">
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
 
 	</package>
 	

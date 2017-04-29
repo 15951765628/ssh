@@ -27,6 +27,8 @@ public class TestUser {
 		template = ac.getBean("template",HibernateTemplate.class);
 	}
 	
+	
+	
 	@Test//测试UserDao
 	public void test5(){
 		String conf = "spring-hibernate.xml";
@@ -82,5 +84,12 @@ public class TestUser {
 //	            System.out.println(service);
 //       
 //	        }*/
+	
+	@Test
+		public void test1(){
+			String a="1,2,,3";
+			String[] collection=a.split(",");
+			System.out.println(collection);
+		}
 	}
 	

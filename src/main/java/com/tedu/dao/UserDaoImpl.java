@@ -176,7 +176,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	public Result<List<User>> updateUser(int userId, String email, String password, String truename, String birthday,
-			String sex, String mobilephone, String nickname,String usericon) {
+			String sex, String mobilephone, String nickname,String usericon,String skin) {
 		// TODO Auto-generated method stub
 		Result<List<User>> result=new Result<List<User>>();
 		
@@ -192,6 +192,7 @@ public class UserDaoImpl implements UserDao{
 			if(email!=null)user.setEmail(email);
 			if(truename!=null)user.setTruename(truename);
 			if(sex!=null)user.setSex(sex);
+			if(skin!=null)user.setSex(skin);
 			update(user);
 			
 			
@@ -262,6 +263,53 @@ public class UserDaoImpl implements UserDao{
 			if(list.size()>0){
 				result.setData(list);
 			}
+			
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setStatus(1);
+		}
+		
+		return result;
+	}
+
+	public Result<List<User>> addCollection(int userId, int dataId) {
+		// TODO Auto-generated method stub
+		Result<List<User>> result=new Result<List<User>>();
+		try {
+			User user=findById(userId);
+			if(user.getCollection()==null){
+				user.setCollection(dataId+"");
+			}else{
+				user.setCollection(user.getCollection()+dataId);
+			}
+			update(user);
+			
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setStatus(1);
+		}
+		
+		return result;
+	}
+
+	public Result<List<User>> delCollection(int userId, int dataId) {
+		// TODO Auto-generated method stub
+		Result<List<User>> result=new Result<List<User>>();
+		try {
+			User user=findById(userId);
+			String co="";
+			String[] collection=user.getCollection().split(",");
+			for(int i=0;i<collection.length;i++ ){
+				if(!collection[i].equals(dataId+"")){
+					co+=collection[i]+",";
+				}
+			}
+			co=co.substring(co.length());
+			user.setCollection(co);
+			update(user);
+		
 			
 			result.setStatus(0);
 		} catch (Exception e) {

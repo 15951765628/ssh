@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.Data"	table="data" dynamic-insert="true" dynamic-update="true">
+		<id name="dataId" type="int" column="dataId">
+		    <generator class="identity"/>
+		</id>
+		<property name="content" type="string"	column="content" >	</property>
+		<property name="imgpath" type="string"	column="imgpath">	</property>
+		
+	</class>
+</hibernate-mapping>

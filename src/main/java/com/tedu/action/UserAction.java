@@ -62,7 +62,7 @@ public class UserAction {
 	}
 	
 	public String updateUser(){
-		u=userService.updateUser(userId,email,password,truename,birthday,sex,mobilephone,nickname,usericon);
+		u=userService.updateUser(userId,email,password,truename,birthday,sex,mobilephone,nickname,usericon,skin);
 		return "success";
 	}
 	
@@ -81,6 +81,16 @@ public class UserAction {
 		return "success";
 	}
 	
+	public String addCollection(){
+		u=userService.addCollection(userId,dataId);
+		return "success";
+	}
+	
+	public String delCollection(){
+		u=userService.delCollection(userId,dataId);
+		return "success";
+	}
+	
 	
 	private Result<List<User>> u;
 	//接收
@@ -94,11 +104,14 @@ public class UserAction {
 	private String email;
 	private String mobilephone;
 	private String usericon;
+	private String skin;
+	private String collection;
 	private int familyId;
 	private Set<Book> books;
 	private int totalIn;
 	private int totalOut;
 	private int totalLeft;
+	private int dataId;
 	
 	private Date startDate;
 	private Date endDate;
@@ -257,6 +270,30 @@ public class UserAction {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getSkin() {
+		return skin;
+	}
+
+	public void setSkin(String skin) {
+		this.skin = skin;
+	}
+
+	public String getCollection() {
+		return collection;
+	}
+
+	public void setCollection(String collection) {
+		this.collection = collection;
+	}
+
+	public int getDataId() {
+		return dataId;
+	}
+
+	public void setDataId(int dataId) {
+		this.dataId = dataId;
 	}
 
 
