@@ -588,6 +588,58 @@
   
 	</package>
 	
+	<package name="product" namespace="/product" extends="json-default">
+	 <!-- 查询data -->
+	 
+	  <!-- 创建data -->
+	    <action name="addData" class="productAction" method="addData">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    <action name="loadDatas" class="productAction" method="loadDatas">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	     <!-- 查询product -->
+	    <action name="loadData" class="productAction" method="loadData">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除product -->
+	    <action name="delData" class="productAction" method="delData">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改product -->
+	    <action name="updateData" class="productAction" method="updateData">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+  
+	</package>
+	
 	<!-- 设置上传文件最大值 -->
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
     <constant name="struts.multipart.maxSize" value="5000000"/>
