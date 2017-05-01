@@ -588,11 +588,11 @@
   
 	</package>
 	
-	<package name="product" namespace="/product" extends="json-default">
+	<package name="data" namespace="/product" extends="json-default">
 	 <!-- 查询data -->
 	 
 	  <!-- 创建data -->
-	    <action name="addData" class="productAction" method="addData">
+	    <action name="addData" class="dataAction" method="addData">
 	        <interceptor-ref name="json">
 		        <param name="contentType">application/json</param>
 		    </interceptor-ref>
@@ -600,7 +600,7 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
-	    <action name="loadDatas" class="productAction" method="loadDatas">
+	    <action name="loadDatas" class="dataAction" method="loadDatas">
 	        <interceptor-ref name="json">
 		        <param name="contentType">application/json</param>
 		    </interceptor-ref>
@@ -608,18 +608,8 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
-	     <!-- 查询product -->
-	    <action name="loadData" class="productAction" method="loadData">
-	        <interceptor-ref name="json">
-		        <param name="contentType">application/json</param>
-		    </interceptor-ref>
-	  		<result name="success" type="json">
-	  		    <param name="root">u</param>
-	  		</result>
-	    </action>
-	    
-	    <!-- 删除product -->
-	    <action name="delData" class="productAction" method="delData">
+	     <!-- 查询data -->
+	    <action name="loadData" class="dataAction" method="loadData">
 	        <interceptor-ref name="json">
 		        <param name="contentType">application/json</param>
 		    </interceptor-ref>
@@ -628,8 +618,18 @@
 	  		</result>
 	    </action>
 	    
-	    <!-- 修改product -->
-	    <action name="updateData" class="productAction" method="updateData">
+	    <!-- 删除data -->
+	    <action name="delData" class="dataAction" method="delData">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改data -->
+	    <action name="updateData" class="dataAction" method="updateData">
 	        <interceptor-ref name="json">
 		        <param name="contentType">application/json</param>
 		    </interceptor-ref>
