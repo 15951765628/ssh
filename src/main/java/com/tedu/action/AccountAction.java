@@ -41,7 +41,7 @@ public class AccountAction {
 		
 		//修改账单
 		public String updateAccount(){
-			u=accountService.updateAccount(accountId,accountname,type,note,money);
+			u=accountService.updateAccount(accountId,accountname,type,note,money,imgpath);
 			return "success";
 		}
 		
