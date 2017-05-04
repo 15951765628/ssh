@@ -268,6 +268,22 @@
 		});
 	}
 	
+	function bt14(){
+		$.ajax({
+			url:path+"skin/find",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"content":"1","imgpath":"2"}),
+			success:function(data){
+				
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
 </script>
 </head>
 <body>
@@ -292,6 +308,7 @@
 	<input type="button" value="创建APPLY" onclick="bt10()"/>
 	<input type="button" value="loadAPPLY(userId=1)" onclick="bt12()"/>
 	<input type="button" value="searchFamily(familyId=1)" onclick="bt13()"/>
+	<input type="button" value="addData" onclick="bt14()"/>
 
 
 	<table>

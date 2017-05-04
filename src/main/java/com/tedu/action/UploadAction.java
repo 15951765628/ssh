@@ -8,6 +8,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.tedu.tools.FileUtil;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +20,8 @@ public class UploadAction extends ActionSupport {
     private String fileFileName;  
     private String fileContentType;
 
+    private List<String> u;
+    
     //(要接收的表单参数) .... 
         private String type;
 
@@ -30,8 +34,24 @@ public class UploadAction extends ActionSupport {
         // 将临时文件复制到上述路径下
         FileUtil.copy(file, new File(path));
     }
+    
+    public String find(){
+    
+    	File file = new File( ServletActionContext.getServletContext().getRealPath("img/skin"));
+    	String[] fileList=file.list();
+    	u=new ArrayList<String>();
+    	for(int i=0;i<fileList.length;i++){
+    		File readFile=new File(ServletActionContext.getServletContext().getRealPath("img/skin"+"\\"+fileList[i]));
+    		String s="ssh/img/skin/"+readFile.getName();
+    		u.add(s);
+    	}
+    	
+    	return "success";
+    }
 
 
+    
+    
     //setter getter
     public File getFile() {
         return file;
@@ -65,6 +85,14 @@ public class UploadAction extends ActionSupport {
     public void setFileContentType(String fileContentType) {
         this.fileContentType = fileContentType;
     }
+
+	public List<String> getU() {
+		return u;
+	}
+
+	public void setU(List<String> u) {
+		this.u = u;
+	}
 
 
 }

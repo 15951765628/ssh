@@ -47,6 +47,11 @@ public class DataServiceImpl implements DataService{
 		// TODO Auto-generated method stub
 		return dataDao.updateData(dataId,content,imgpath);
 	}
+
+	public Result<List<Data>> loadDataByUser(int dataId) {
+		// TODO Auto-generated method stub
+		return dataDao.loadDataByUser(dataId);
+	}
 	
 		
 	

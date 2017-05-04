@@ -90,17 +90,25 @@
 		
 		<!-- 添加收藏 -->
 		<action name="addCollection" class="userAction" method="addCollection">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
 			<result name="success" type="json">
 				<param name="root">u</param>
 			</result>
 		</action>
 		
-		<!-- 衣橱收藏 -->
+		<!-- 查询收藏 -->
 		<action name="delCollection" class="userAction" method="delCollection">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
 			<result name="success" type="json">
 				<param name="root">u</param>
 			</result>
 		</action>
+		
+		
 
 	</package>
 	
@@ -588,7 +596,7 @@
   
 	</package>
 	
-	<package name="data" namespace="/product" extends="json-default">
+	<package name="data" namespace="/data" extends="json-default">
 	 <!-- 查询data -->
 	 
 	  <!-- 创建data -->
@@ -637,6 +645,16 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
+	    
+	    <!-- 查询用户data -->
+	    <action name="loadDataByUser" class="dataAction" method="loadDataByUser">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
   
 	</package>
 	
@@ -649,7 +667,22 @@
         <!-- 上传文件 -->
         <action name="upload" class="uploadAction" method="upload">   
         </action>
+       
     </package>    
+     <!-- 文件上传示例 -->
+    <package name="file2" namespace="/skin" extends="json-default">
+        <!-- 上传文件 -->
+        <action name="find" class="uploadAction" method="find">   
+             <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+            <result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+        </action>
+       
+    </package>    
+     
 
 </struts>
 

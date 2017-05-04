@@ -92,6 +92,7 @@ public class UserAction {
 	}
 	
 	
+	
 	private Result<List<User>> u;
 	//接收
 	private int userId;

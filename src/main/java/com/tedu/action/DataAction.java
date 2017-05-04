@@ -49,6 +49,12 @@ public class DataAction {
 		return "success";
 	}
 	
+	public String loadDataByUser(){
+		//吧userId传进来
+		u=dataService.loadDataByUser(dataId);
+		return "success";
+	}
+	
 	
 	
 	

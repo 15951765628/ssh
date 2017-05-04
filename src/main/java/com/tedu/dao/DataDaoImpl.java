@@ -16,6 +16,7 @@ import com.tedu.entity.Account;
 import com.tedu.entity.Bill;
 import com.tedu.entity.Data;
 import com.tedu.entity.Result;
+import com.tedu.entity.User;
 
 @Repository("dataDao")//扫描
 public class DataDaoImpl implements DataDao{
@@ -57,6 +58,7 @@ public class DataDaoImpl implements DataDao{
 			result.setStatus(0);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 			result.setStatus(1);
 		}
@@ -75,6 +77,7 @@ public class DataDaoImpl implements DataDao{
 			result.setStatus(0);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 			result.setStatus(1);
 		}
@@ -93,6 +96,7 @@ public class DataDaoImpl implements DataDao{
 			result.setStatus(0);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 			result.setStatus(1);
 		}
@@ -113,6 +117,7 @@ public class DataDaoImpl implements DataDao{
 			result.setStatus(0);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			// TODO: handle exception
 			result.setStatus(1);
 		}
@@ -131,11 +136,39 @@ public class DataDaoImpl implements DataDao{
 			result.setStatus(0);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO: handle exception\
+			e.printStackTrace();
 			result.setStatus(1);
 		}
 		
 		return result;
+	}
+
+	public Result<List<Data>> loadDataByUser(int dataId) {
+		// TODO Auto-generated method stub
+				Result<List<Data>> result =new Result<List<Data>>();
+				List<Data> list=new ArrayList<Data>();
+				try {
+					String sql="from User where userId = ?";
+					User u =template.load(User.class, dataId);
+					String[] dataIds=u.getCollection().split(",");
+					for(int i=0;i<dataIds.length;i++){
+						
+						Data d=new Data();
+						d=findById(Integer.parseInt(dataIds[i]));
+						list.add(d);
+					}
+					
+					result.setData(list);
+					result.setStatus(0);
+					
+				} catch (Exception e) {
+					// TODO: handle exception\
+					e.printStackTrace();
+					result.setStatus(1);
+				}
+				
+				return result;
 	}
 
 

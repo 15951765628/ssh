@@ -19,6 +19,8 @@ public interface DataDao {
 
 	Result<List<Data>> loadData(int dataId);
 
+	Result<List<Data>> loadDataByUser(int dataId);
+
 
 
 }

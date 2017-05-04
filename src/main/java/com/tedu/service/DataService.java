@@ -19,6 +19,8 @@ public interface DataService {
 
 	Result<List<Data>> updateData(int dataId, String content, String imgpath);
 
+	Result<List<Data>> loadDataByUser(int dataId);
+
 
 	
 }
