@@ -157,7 +157,7 @@ public class NoteDaoImpl implements NoteDao{
 				try {
 				String sql	="from Note where note like ? and ";
 				sql+=type==1?"username is null ":"username is not null ";
-					list=template.find(sql,note);
+					list=template.find(sql,"%"+note+"%");
 					result.setData(list);
 					result.setStatus(0);
 				} catch (Exception e) {
