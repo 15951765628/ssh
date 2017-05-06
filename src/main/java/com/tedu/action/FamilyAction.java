@@ -92,7 +92,7 @@ public class FamilyAction {
 	}
 	
 	public String loadBudget(){
-		List<Integer> u3=familyService.loadBudget(familyId);
+		u3=familyService.loadBudget(familyId);
 		return "success";
 	}
 	

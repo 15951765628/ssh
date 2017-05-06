@@ -49,6 +49,11 @@ public class NoteAction {
 		return "success";
 	}
 	
+	public String search(){
+		u=noteService.search(note,type);
+		return "success";
+	}
+	
 	
 	
 	

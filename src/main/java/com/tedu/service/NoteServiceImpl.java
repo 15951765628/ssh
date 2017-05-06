@@ -46,4 +46,10 @@ public class NoteServiceImpl implements NoteService{
 		return noteDao.deleteNote(noteId);
 	}
 
+
+	public Result<List<Note>> search(String note, int type) {
+		// TODO Auto-generated method stub
+		return noteDao.search(note,type);
+	}
+
 }

@@ -21,6 +21,8 @@ public interface DataDao {
 
 	Result<List<Data>> loadDataByUser(int dataId);
 
+	Result<List<Data>> search(String content);
+
 
 
 }

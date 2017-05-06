@@ -56,7 +56,11 @@ public class DataAction {
 	}
 	
 	
-	
+	public String search()
+	{
+		u=dataService.search(content);
+		return "success";
+	}
 	
 
 

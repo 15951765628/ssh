@@ -320,4 +320,21 @@ public class UserDaoImpl implements UserDao{
 		return result;
 	}
 
+	public Result<List<User>> search(String truename) {
+		// TODO Auto-generated method stub
+		Result<List<User>> result = new Result<List<User>>();
+		List<User> list =new ArrayList<User>();
+		try {
+			String sql = "from User where truename like ?"; 
+			list=template.find(sql,"%"+truename+"%");
+			result.setData(list);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setStatus(1);
+			// TODO: handle exception
+		}
+		return result;
+	}
+
 }

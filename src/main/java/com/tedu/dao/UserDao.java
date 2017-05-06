@@ -31,4 +31,5 @@ public interface UserDao {
 	public Result<List<User>> loadUsers();
 	public Result<List<User>> addCollection(int userId, int dataId);
 	public Result<List<User>> delCollection(int userId, int dataId);
+	public Result<List<User>> search(String truename);
 }

@@ -98,6 +98,11 @@ public class UserServiceImpl implements UserService{
 		return userDao.delCollection(userId,dataId);
 	}
 
+	public Result<List<User>> search(String truename) {
+		// TODO Auto-generated method stub
+		return userDao.search(truename);
+	}
+
 	
 
 

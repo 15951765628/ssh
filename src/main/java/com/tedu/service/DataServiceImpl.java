@@ -52,6 +52,11 @@ public class DataServiceImpl implements DataService{
 		// TODO Auto-generated method stub
 		return dataDao.loadDataByUser(dataId);
 	}
+
+	public Result<List<Data>> search(String content) {
+		// TODO Auto-generated method stub
+		return dataDao.search(content);
+	}
 	
 		
 	

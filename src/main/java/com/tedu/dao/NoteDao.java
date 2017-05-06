@@ -18,4 +18,6 @@ public interface NoteDao {
 
 	Result<List<Note>> deleteNote(int noteId);
 
+	Result<List<Note>> search(String note, int type);
+
 }

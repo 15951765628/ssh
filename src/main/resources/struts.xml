@@ -108,6 +108,16 @@
 			</result>
 		</action>
 		
+		<!-- 模糊查询 -->
+		<action name="search" class="userAction" method="search">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
+		
 		
 
 	</package>
@@ -502,6 +512,16 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
+	    
+	     <!-- 模糊查询 -->
+		<action name="search" class="noteAction" method="search">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
   
 	</package>
 	
@@ -613,6 +633,8 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
+	    
+	   
   
 	</package>
 	
@@ -675,6 +697,16 @@
 	  		    <param name="root">u</param>
 	  		</result>
 	    </action>
+	    
+	     <!-- 模糊查询 -->
+		<action name="search" class="dataAction" method="search">
+		    <interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">u</param>
+			</result>
+		</action>
   
 	</package>
 	
@@ -744,7 +776,6 @@
 	  		    <param name="root">u</param>
 	  		</result>
         </action>
-       
     </package>    
      
 

@@ -43,6 +43,13 @@ public class UserAction {
 		return "success";
 	}
 	
+	//模糊查询所有用户
+	public String search(){
+			
+		u=userService.search(truename);
+		return "success";
+	}	
+	
 	//注册
 	public String userRegister(){
 		

@@ -149,4 +149,23 @@ public class NoteDaoImpl implements NoteDao{
 		return result;
 	}
 
+	public Result<List<Note>> search(String note, int type) {
+		// TODO Auto-generated method stub
+				Result<List<Note>> result =new Result<List<Note>>();
+				List<Note> list=new ArrayList<Note>();
+				
+				try {
+				String sql	="from Note where note like ? and ";
+				sql+=type==1?"username is null ":"username is not null ";
+					list=template.find(sql,note);
+					result.setData(list);
+					result.setStatus(0);
+				} catch (Exception e) {
+					// TODO: handle exception
+					result.setStatus(1);
+				}
+				
+				return result;
+	}
+
 }

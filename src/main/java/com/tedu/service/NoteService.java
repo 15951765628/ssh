@@ -18,4 +18,6 @@ public interface NoteService {
 
 	Result<List<Note>> deleteNote(int noteId);
 
+	Result<List<Note>> search(String note, int type);
+
 }

@@ -21,6 +21,8 @@ public interface DataService {
 
 	Result<List<Data>> loadDataByUser(int dataId);
 
+	Result<List<Data>> search(String content);
+
 
 	
 }

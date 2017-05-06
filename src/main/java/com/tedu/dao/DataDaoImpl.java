@@ -171,6 +171,23 @@ public class DataDaoImpl implements DataDao{
 				return result;
 	}
 
+	public Result<List<Data>> search(String content) {
+		// TODO Auto-generated method stub
+		Result<List<Data>> result=new Result<List<Data>>();
+		List<Data> list=new ArrayList<Data>();
+		try {
+			String sql="from Data where content like ?";
+			list=template.find(sql,"%"+content+"%");
+			result.setData(list);
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setStatus(1);
+		}
+		
+		return result;
+	}
+
 
 
 	

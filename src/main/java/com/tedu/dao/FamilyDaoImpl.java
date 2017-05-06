@@ -303,10 +303,11 @@ public class FamilyDaoImpl implements FamilyDao{
 			users=template.find(sqlUsers,familyId);
 			for(User user:users){
 				String sqlAccounts=" from Account where userId = ? ";
-				String sqlBills=" from Bill where (payAccount = ? or receiveAccount = ?) and createdate between ? and ?  and bookId not in (0) ";
+				String sqlBills=" from Bill where (payAccount = ? or receiveAccount = ?) and createdate between"
+						+ " '"+formatter.format(c1.getTime())+" 00:00:00' and '"+ formatter.format(c2.getTime()) +" 23:59:59' and bookId not in (0) ";
 				accounts=template.find(sqlAccounts,user.getUserId());
 				for(Account account:accounts){
-					bills=template.find(sqlBills,account.getAccountId(),account.getAccountId(), formatter.format(c1.getTime())+" 00:00:00",formatter.format(c2.getTime())+" 23:59:59");
+					bills=template.find(sqlBills,account.getAccountId(),account.getAccountId());
 					for(Bill bill:bills){
 						if(bill.getPayAccount()==account.getAccountId()){
 							totalOut+=bill.getNum();
