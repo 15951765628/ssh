@@ -1,6 +1,9 @@
 package com.tedu.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -282,6 +285,17 @@ public class FamilyDaoImpl implements FamilyDao{
 		List<User> users=new ArrayList<User>();
 		List<Account> accounts=new ArrayList<Account>();
 		List<Bill> bills=new ArrayList<Bill>();
+		
+		SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd");
+		Calendar c1=Calendar.getInstance();
+		Calendar c2=Calendar.getInstance();
+		c1.setTime(new Date());		
+		c2.setTime(new Date());	
+
+		c1.set(c1.get(1), c1.get(2), c1.getMinimum(Calendar.DATE));
+		c2.set(c2.get(1), c2.get(2), c2.getMaximum(Calendar.DATE));
+		
+		
 		int totalIn=0;
 		int totalOut=0;
 		try {
@@ -292,7 +306,7 @@ public class FamilyDaoImpl implements FamilyDao{
 				String sqlBills=" from Bill where (payAccount = ? or receiveAccount = ?) and createdate between ? and ?  and bookId not in (0) ";
 				accounts=template.find(sqlAccounts,user.getUserId());
 				for(Account account:accounts){
-					bills=template.find(sqlBills,account.getAccountId(),account.getAccountId(),"2017-05-01 00:00:00","2017-05-31 23:59:59");
+					bills=template.find(sqlBills,account.getAccountId(),account.getAccountId(), formatter.format(c1.getTime())+" 00:00:00",formatter.format(c2.getTime())+" 23:59:59");
 					for(Bill bill:bills){
 						if(bill.getPayAccount()==account.getAccountId()){
 							totalOut+=bill.getNum();
@@ -311,6 +325,25 @@ public class FamilyDaoImpl implements FamilyDao{
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			// TODO: handle exception
+		}
+		return result;
+	}
+
+	public Result<List<Family>> updateFamily(int familyId, int budgetin, int budgetout) {
+		// TODO Auto-generated method stub
+		Result<List<Family>> result =new Result<List<Family>>();
+		
+		try {
+			Family family=findById(familyId);
+			if(budgetin!=0) family.setBudgetin(budgetin);
+			if(budgetout!=0) family.setBudgetout(budgetout);
+			update(family);
+			
+			result.setStatus(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setStatus(1);
 			// TODO: handle exception
 		}
 		return result;

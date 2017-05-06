@@ -187,6 +187,26 @@
 		    </result>
 		</action>
 		
+		<!-- 更新家庭 -->
+		<action name="updateFamily" class="familyAction" method="updateFamily">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u</param>
+		    </result>
+		</action>
+		
+		<!-- 查询收入支出 -->
+		<action name="loadBudget" class="familyAction" method="loadBudget">
+		    <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+		    <result name="success" type="json">
+		        <param name="root">u3</param>
+		    </result>
+		</action>
+		
 		
 	</package>
 	

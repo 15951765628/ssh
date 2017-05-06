@@ -85,6 +85,11 @@ public class FamilyServiceImpl implements FamilyService{
 		// TODO Auto-generated method stub
 		return familyDao.loadBudget(familyId);
 	}
+
+	public Result<List<Family>> updateFamily(int familyId, int budgetin, int budgetout) {
+		// TODO Auto-generated method stub
+		return familyDao.updateFamily(familyId,budgetin,budgetout);
+	}
 	
 	
 }

@@ -28,4 +28,6 @@ public interface FamilyDao {
 
 	List<Integer> loadBudget(int familyId);
 
+	Result<List<Family>> updateFamily(int familyId, int budgetin, int budgetout);
+
 }

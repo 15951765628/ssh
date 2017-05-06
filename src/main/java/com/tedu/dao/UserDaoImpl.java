@@ -192,7 +192,7 @@ public class UserDaoImpl implements UserDao{
 			if(email!=null)user.setEmail(email);
 			if(truename!=null)user.setTruename(truename);
 			if(sex!=null)user.setSex(sex);
-			if(skin!=null)user.setSex(skin);
+			if(skin!=null)user.setSkin(skin);
 			update(user);
 			
 			

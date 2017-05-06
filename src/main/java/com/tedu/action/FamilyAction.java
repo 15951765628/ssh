@@ -86,6 +86,11 @@ public class FamilyAction {
 		return "success";
 	} 
 	
+	public String updateFamily(){
+		u=familyService.updateFamily(familyId,budgetin,budgetout);
+		return "success";
+	}
+	
 	public String loadBudget(){
 		List<Integer> u3=familyService.loadBudget(familyId);
 		return "success";
@@ -116,6 +121,8 @@ public class FamilyAction {
 	private int fcreaterId;
 	private int isRead;
 	private int isRefuse;
+	private int budgetin;
+	private int budgetout;
 	
 	private String username;
 	private String familyname;
@@ -265,6 +272,22 @@ public class FamilyAction {
 
 	public void setU3(List<Integer> u3) {
 		this.u3 = u3;
+	}
+
+	public int getBudgetin() {
+		return budgetin;
+	}
+
+	public void setBudgetin(int budgetin) {
+		this.budgetin = budgetin;
+	}
+
+	public int getBudgetout() {
+		return budgetout;
+	}
+
+	public void setBudgetout(int budgetout) {
+		this.budgetout = budgetout;
 	}
 	
 }
