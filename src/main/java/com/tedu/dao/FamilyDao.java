@@ -26,4 +26,6 @@ public interface FamilyDao {
 
 	Result<List<Family>> loadFamilys();
 
+	List<Integer> loadBudget(int familyId);
+
 }

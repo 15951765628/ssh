@@ -80,6 +80,11 @@ public class FamilyServiceImpl implements FamilyService{
 		// TODO Auto-generated method stub
 		return familyDao.loadFamilys();
 	}
+
+	public List<Integer> loadBudget(int familyId) {
+		// TODO Auto-generated method stub
+		return familyDao.loadBudget(familyId);
+	}
 	
 	
 }

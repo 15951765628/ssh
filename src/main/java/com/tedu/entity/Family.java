@@ -13,6 +13,8 @@ public class Family implements Serializable {
 	private String declaration ;
 	private String address ;
 	private int createrId;
+	private int budgetin;
+	private int budgetout;
 	
 	private Set<User> users;
 	
@@ -72,6 +74,18 @@ public class Family implements Serializable {
 	}
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+	public int getBudgetin() {
+		return budgetin;
+	}
+	public void setBudgetin(int budgetin) {
+		this.budgetin = budgetin;
+	}
+	public int getBudgetout() {
+		return budgetout;
+	}
+	public void setBudgetout(int budgetout) {
+		this.budgetout = budgetout;
 	}	
 
 }

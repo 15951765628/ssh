@@ -23,4 +23,6 @@ public interface FamilyService {
 	Result<List<Family>> searchFamily(int familyId);
 
 	Result<List<Family>> loadFamilys();
+
+	List<Integer> loadBudget(int familyId);
 }

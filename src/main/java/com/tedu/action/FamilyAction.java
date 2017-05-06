@@ -83,14 +83,22 @@ public class FamilyAction {
 	
 		u2=familyService.updateApply(u_familyId,userId,familyId,fcreaterId,isRefuse);
 	
-	return "success";
-} 
+		return "success";
+	} 
+	
+	public String loadBudget(){
+		List<Integer> u3=familyService.loadBudget(familyId);
+		return "success";
+	}
 	
 	
 	
 	
 	
 	private Result<List<Family>> u;
+	private Result<List<U_family>> u2;
+	private List<Integer> u3;
+	
 	
 	private int familyId ;
 	private int userId;
@@ -102,7 +110,7 @@ public class FamilyAction {
 	private int createrId ;
 	private Set<User> users;
 	
-	private Result<List<U_family>> u2;
+	
 	
 	private int u_familyId;
 	private int fcreaterId;
@@ -249,6 +257,14 @@ public class FamilyAction {
 
 	public void setFamilyname(String familyname) {
 		this.familyname = familyname;
+	}
+
+	public List<Integer> getU3() {
+		return u3;
+	}
+
+	public void setU3(List<Integer> u3) {
+		this.u3 = u3;
 	}
 	
 }

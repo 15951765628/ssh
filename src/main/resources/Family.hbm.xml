@@ -12,6 +12,8 @@
 		<property name="address" type="string"	column="address">	</property>
 		<property name="createdate" type="date"	column="createdate">	</property>
 		<property name="createrId" type="int"	column="createrId">	</property>
+		<property name="budgetin" type="int"	column="budgetin">	</property>
+		<property name="budgetout" type="int"	column="budgetout">	</property>
 		
 		<!-- 配置services属性，采用一对多的关系 -->
         <set name="users">

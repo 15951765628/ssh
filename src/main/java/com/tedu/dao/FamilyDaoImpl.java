@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.tedu.entity.Account;
+import com.tedu.entity.Bill;
 import com.tedu.entity.Family;
 import com.tedu.entity.Result;
 import com.tedu.entity.User;
@@ -244,6 +246,72 @@ public class FamilyDaoImpl implements FamilyDao{
 			e.printStackTrace();
 			result.setStatus(1);
 			
+		}
+		return result;
+	}
+
+	public List<Integer> loadBudget(int familyId) {
+		// TODO Auto-generated method stub
+		/*List<User> users=new ArrayList<User>();
+		List<Account> accounts=new ArrayList<Account>();
+		List<Bill> bills=new ArrayList<Bill>();
+		try {
+			User user=findById(userId);
+			String sqlAccounts=" from Account where userId = ? ";
+			String sqlBills=" from Bill where (payAccount = ? or receiveAccount = ?) and createdate between ? and ?  and bookId not in (0) ";
+			accounts=template.find(sqlAccounts,userId);
+			for(Account account:accounts){
+				bills=template.find(sqlBills,account.getAccountId(),account.getAccountId(),startdate,enddate);
+				for(Bill bill:bills){
+					if(bill.getPayAccount()==account.getAccountId()){
+						user.setTotalOut(user.getTotalOut()+bill.getNum());
+					}else if(bill.getReceiveAccount()==account.getAccountId()){
+						user.setTotalIn(user.getTotalIn()+bill.getNum());
+					}
+				}			
+				user.setTotalLeft(user.getTotalLeft()+account.getMoney());
+			}
+			users.add(user);
+			result.setData(users);			
+			result.setStatus(0);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.setStatus(1);
+		}*/
+		List<Integer> result=new ArrayList<Integer>();
+		List<User> users=new ArrayList<User>();
+		List<Account> accounts=new ArrayList<Account>();
+		List<Bill> bills=new ArrayList<Bill>();
+		int totalIn=0;
+		int totalOut=0;
+		try {
+			String sqlUsers="from User where familyId= ? ";
+			users=template.find(sqlUsers,familyId);
+			for(User user:users){
+				String sqlAccounts=" from Account where userId = ? ";
+				String sqlBills=" from Bill where (payAccount = ? or receiveAccount = ?) and createdate between ? and ?  and bookId not in (0) ";
+				accounts=template.find(sqlAccounts,user.getUserId());
+				for(Account account:accounts){
+					bills=template.find(sqlBills,account.getAccountId(),account.getAccountId(),"2017-05-01 00:00:00","2017-05-31 23:59:59");
+					for(Bill bill:bills){
+						if(bill.getPayAccount()==account.getAccountId()){
+							totalOut+=bill.getNum();
+						}else if(bill.getReceiveAccount()==account.getAccountId()){
+							totalIn+=bill.getNum();
+						}
+					}			
+				}
+				
+			}
+		
+			result.add(totalIn);
+			result.add(totalOut);
+		
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
 		}
 		return result;
 	}
