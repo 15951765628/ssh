@@ -284,13 +284,30 @@
 		});
 	}
 	
+	function bt21(){
+		$.ajax({
+			url:path+"skin/createSkin",
+			type:"post",
+			dataType:"json",
+			contentType:"application/json",
+			data:JSON.stringify({"skinTheme":"1","skinImg":"2"}),
+			success:function(data){
+				
+			},
+			error:function(){
+				alert("访问家庭失败");
+			}
+		});
+	}
+	
 </script>
 </head>
 <body>
-	<form>
-	</form>
-	账号：<input type="text" ><br/>
-	密码：<input type="password"><br/>
+	<input type="button" value="createSkin" onclick="bt21()"/>
+
+
+
+	<hr/>
 	<input type="button" value="确定" onclick="bt1()"/>
 	<input type="button" value="search家庭=1" onclick="bt2()"/>
 	<input type="button" value="加载计划" onclick="bt3()"/>

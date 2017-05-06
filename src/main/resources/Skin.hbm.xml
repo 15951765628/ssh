@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.tedu.entity.Skin"	table="skin" dynamic-insert="true" dynamic-update="true">
+		<id name="skinId" type="int" column="skinId">
+		    <generator class="identity"/>
+		</id>
+		<property name="skinTheme" type="string"	column="skinTheme" >	</property>
+		<property name="skinImg" type="string"	column="skinImg">	</property>
+		
+	</class>
+</hibernate-mapping>

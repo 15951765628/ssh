@@ -658,6 +658,50 @@
   
 	</package>
 	
+	<package name="skin" namespace="/skin" extends="json-default">
+	 <!-- 查询Skin -->
+	 
+	  <!-- 创建Skin -->
+	    <action name="createSkin" class="skinAction" method="createSkin">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    <action name="loadSkins" class="skinAction" method="loadSkins">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 删除Skin -->
+	    <action name="deleteSkin" class="skinAction" method="deleteSkin">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+	    <!-- 修改Skin -->
+	    <action name="editSkin" class="skinAction" method="editSkin">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
+  
+	</package>
+	
 	<!-- 设置上传文件最大值 -->
 	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
     <constant name="struts.multipart.maxSize" value="5000000"/>

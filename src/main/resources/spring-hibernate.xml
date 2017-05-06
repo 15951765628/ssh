@@ -62,6 +62,8 @@
 			<value>classpath:Product.hbm.xml</value>
 			<value>classpath:U_family.hbm.xml</value>
 			<value>classpath:Data.hbm.xml</value>
+			<value>classpath:Skin.hbm.xml</value>
+			
 		</list>
 	</property>
 </bean>
