@@ -24,4 +24,6 @@ public interface BillDao {
 
 	List<String> loadMoneyByTime(int bookId, Date dayStart, Date dayStart2);
 
+	Result<List<Bill>> deleteBill2(int billId);
+
 }

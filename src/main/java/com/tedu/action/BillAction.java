@@ -64,6 +64,12 @@ public class BillAction {
 		return "success";
 	}
 	
+	//删除账单
+		public String deleteBill2(){
+			u=billService.deleteBill2(billId);
+			return "success";
+		}
+	
 	//删除账本下账单/**
 	/**
 	 * 

@@ -183,6 +183,23 @@ public class BillDaoImpl implements BillDao{
 				
 				return result;
 	}
+	
+	public Result<List<Bill>> deleteBill2(int billId) {
+		// TODO Auto-generated method stub
+				Result<List<Bill>> result=new Result<List<Bill>>();
+				List<Bill> list=new ArrayList<Bill>();
+				
+				try {
+					delete(billId);
+					result.setStatus(0);
+				} catch (Exception e) {
+					// TODO: handle exception
+					result.setStatus(1);
+					
+				}
+				
+				return result;
+	}
 
 	public Result<List<Bill>> deleteBills(int bookId) {
 		// TODO Auto-generated method stub

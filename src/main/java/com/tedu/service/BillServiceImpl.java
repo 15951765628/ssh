@@ -46,6 +46,11 @@ public class BillServiceImpl implements BillService{
 		// TODO Auto-generated method stub
 		return billDao.deleteBill(billId);
 	}
+	
+	public Result<List<Bill>> deleteBill2(int billId) {
+		// TODO Auto-generated method stub
+		return billDao.deleteBill2(billId);
+	}
 
 	public Result<List<Bill>> deleteBills(int bookId) {
 		// TODO Auto-generated method stub

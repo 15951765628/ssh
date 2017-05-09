@@ -23,5 +23,7 @@ public interface BillService {
 	Result<List<Bill>> loadBillByTime(int bookId, Date starttime,Date endtime);
 
 	Result<List<List<String>>> loadMoney(int bookId, Date dayStart, Date weekStart, Date monthStart, Date yearStart);
+
+	Result<List<Bill>> deleteBill2(int billId);
 	
 }

@@ -332,6 +332,16 @@
 	  		</result>
 	    </action>
 	    
+	    <!-- 删除账单 2-->
+	    <action name="deleteBill2" class="billAction" method="deleteBill2">
+	        <interceptor-ref name="json">
+		        <param name="contentType">application/json</param>
+		    </interceptor-ref>
+	  		<result name="success" type="json">
+	  		    <param name="root">u</param>
+	  		</result>
+	    </action>
+	    
 	    <!-- 删除多个账单 -->
 	    <action name="deleteBills" class="billAction" method="deleteBills">
 	        <interceptor-ref name="json">
